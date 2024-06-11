@@ -1,14 +1,15 @@
-import nav from './nav'
 import './App.css'
-import Navbar from './nav'
+import Navbar from './Navbar'
 import Hero from './Hero'
+import Card from './Card'
 
 function App() {
 
   return (
     <div>
       <Navbar/>
-      <Hero/>
+      {/* <Hero/> */}
+      <Card/>
     </div>
   )
 }
