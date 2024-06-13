@@ -1,10 +1,21 @@
 import React from "react";
-import cardPhoto from "../images/katie-zaferes.png"
+import PropTypes from 'prop-types'
 
-export default function Card() { 
+export default function Card(props) { 
+  Card.propTypes = {
+    key: PropTypes.number.isRequired,
+    img: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    reviewCount: PropTypes.number.isRequired,
+    country: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired
+  }
+
   return (
+
     <div className="card">
-      <img src={cardPhoto} 
+      <img src={`../public/images/${props.img}`}
           alt="main-card-image" 
           className="card--image" 
       />
@@ -13,13 +24,13 @@ export default function Card() {
       </p>
       <div className="card--stats">
         <img src="./images/star.png" className="card--star" />
-        <span>5.0</span>
-        <span className="gray">(6) • </span>
-        <span className="gray">USA</span>
+        <span>{props.rating}</span>
+        <span className="gray">({props.reviewCount}) • </span>
+        <span className="gray">{props.country}</span>
       </div>
-      <p className="card--title">Life Lessons with Katie Zaferes</p>
+      <p className="card--title">{props.title}</p>
       <p className="card--price">
-        <span className="bold">From $136</span> / person
+        <span className="bold">From {props.price}</span> / person
       </p>
     </div>
   )
